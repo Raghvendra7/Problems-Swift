@@ -1,0 +1,23 @@
+
+Given a string, find the length of the longest substring without repeating characters.
+
+
+func lengthOfLongestSubstring(_ s: String) -> Int {
+    var longest = 0, index = 0, dict = Dictionary<Character,Int>()
+    let sChars = Array(s)
+  
+    
+    for (i, char) in sChars.enumerated() {
+        if dict[char] != nil {
+            index = max(index,dict[char]! + 1)
+            dict[char] = i
+    
+        } else {
+            dict[char] = i
+          
+        }
+         longest = max(longest, i - index + 1)
+    }
+    
+    return longest
+}
