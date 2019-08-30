@@ -6,6 +6,7 @@
 func checkMagazine(magazine: [String], note: [String]) -> Void {
     if magazine.count < note.count{
         print("No")
+        return
     }
     var dict = [String:Int]()
     for data in magazine{
